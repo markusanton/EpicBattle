@@ -20,6 +20,22 @@ namespace EpicBattles
             int villainHP = RandomHP();
             Console.WriteLine($"Hero HP: {heroHP}, Villain HP: {villainHP}");
 
+            WinGenerator(heroHP, villainHP);
+        }
+        public static string GetCharacter(string[] array)
+        {
+            Random rand = new Random();
+            string randomString = array[rand.Next(0, array.Length)];
+            return randomString;
+        }
+        public static int RandomHP()
+        {
+            Random rand = new Random();
+            int HP = rand.Next(5, 11);
+            return HP;
+        }
+        public static void WinGenerator(int heroHP, int villainHP)
+        {
             while (heroHP > 0 && villainHP > 0)
             {
                 Random rand = new Random();
@@ -35,18 +51,6 @@ namespace EpicBattles
             {
                 Console.WriteLine("Hero wins!");
             }
-        }
-        public static string GetCharacter(string[] array)
-        {
-            Random rand = new Random();
-            string randomString = array[rand.Next(0, array.Length)];
-            return randomString;
-        }
-        public static int RandomHP()
-        {
-            Random rand = new Random();
-            int HP = rand.Next(5, 11);
-            return HP;
         }
     }
 }
